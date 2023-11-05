@@ -77,7 +77,7 @@ And, a word of warning to beginners: HTML, which is what this is, started out as
 
 So, HTML is all well and good, but in its raw form, it's very non-interactive: the text that you put in the HTML tags just kind of sits there. That's boring. Also, it's not very organized; everything you want to display on web page, you're usually going to have to put in one single file, which can get kind of sprawling and messy. (Unless you use iframes, which introduce other complications, like figuring out what size they should be.) There are a lot of systems that promise to give you the ability to write organized, interactive HTML: React, Svelte, Web Components, Angular, etc, but the one I have chosen to look at today is called Vue. And if you go to this StackBlitz link, *(TODO: add link)* you're going to be able to write some HTML within the Vue framework.
 
-So, as we can see, there are three basic sections in a Vue file. We have the `<template>` section, which is where you put HTML; we'll see why it's called "template" in a second. There's the `<script setup>` section, which is where you can put JavaScript code that makes your HTML changeable and interactive. And there's the `<style>` section, which is where you put CSS that lets you change the style and layout of your HTML.
+So, as we can see, there are three basic sections in a Vue file. We have the `<template>` section, which is where you put HTML; we'll see why it's called "template" in a second. There's the `<script setup>` section, which is where you can put JavaScript code that makes your HTML changeable and interactive. And there's the `<style scoped>` section, which is where you put CSS that lets you change the style and layout of your HTML.
 
 ```html
 <template>
@@ -93,9 +93,9 @@ So, as we can see, there are three basic sections in a Vue file. We have the `<t
 </style>
 ```
 
-So, yeah, there are three different programming languages involved here, and the default way that you write comments is different in all three of them, because God hates us. This whole thing, which basically creates a piece of a web page that you can also use multiple times, is called a Vue component. Pretty much none of the modern web is created with pure, raw, free-range HTML anymore; instead, you create a little segment of HTML and package some specific, related JavaScript and CSS with it, which is called a "component" by various different frameworks and systems.
+So, yeah, there are three different programming languages involved here, and the default way that you write comments is different in all three of them, because God hates us. This whole thing, which basically creates a piece of a web page that you can also use multiple times, is called a Vue component. Pretty much none of the modern web is created with pure, raw, free-range HTML anymore; instead, you create a little segment of HTML and package some specific, related JavaScript and CSS with it, and the result is called a "component" by various different frameworks and systems.
 
-So, let's go ahead and paste the HTML that I wrote earlier in the "template" section. I'll paste into the chat so you don't have to copy it all down. The result:
+So, let's go ahead and paste the HTML that I wrote earlier into the "template" section. I'll paste into the chat so you don't have to copy it all down. The result:
 
 ```html
 <template>
@@ -122,3 +122,33 @@ So, let's go ahead and paste the HTML that I wrote earlier in the "template" sec
 So, yeah. In the result pane on the right, you should see formatted text. We put HTML in, and we get formatted text back out. (In this case there isn't really a sending computer and a receiving computer; like, both of those computers are the same one, yours; but the point still stands.)
 
 *TODO: when creating new, different components later, bring up the fact that the styles in a `<style scoped>` tag don't affect other components, which is useful sometimes*
+
+I'm going to take the liberty of adding some basic CSS here to make the result look better. CSS is a language that lets you select some parts of the HTML and then write "rules" that change how they look. So, we can write a CSS selector that selects the "h1" section of the HTML (which stands for header 1, meaning the largest and most important header) and turn it red:
+
+```css
+h1 {
+    color: red;
+}
+```
+
+"color" automatically means text color, because, like, when CSS was created, pretty much everything was text, so that's the default assumption. But what I really want to do, to be honest, is to change the font of this whole thing, because serif fonts aren't very warning-y. So, I'm going to write a CSS selector that selects everything; and write a rule that changes the font that's used:
+
+```css
+* {
+    font-family: sans-serif;
+}
+```
+
+An asterisk, or "star", is used pretty often in programming to serve as a "wildcard", meaning it represents every possible possibility. In this case, it represents every possible CSS selector and applies the rule that I'm giving here to everything. This says "font-family" instead of "font" because technically, the bold and italic versions of a typeface are different fonts, and this sets all of those. "Sans-serif" means "without serif". And that's enough CSS for one lifetime.
+
+```html
+<style scoped>
+/* CSS for style & layout goes here */
+h1 {
+  color: red;
+}
+* {
+  font-family: sans-serif;
+}
+</style>
+```
