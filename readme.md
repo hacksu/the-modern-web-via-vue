@@ -121,6 +121,8 @@ So, let's go ahead and paste the HTML that I wrote earlier into the "template" s
 
 So, yeah. In the result pane on the right, you should see formatted text. We put HTML in, and we get formatted text back out. (In this case there isn't really a sending computer and a receiving computer; like, both of those computers are the same one, yours; but the point still stands.)
 
+![image](https://github.com/hacksu/the-modern-web-via-vue/assets/49729978/962b83b9-2c6a-4109-81e7-a70c626a349a)
+
 *TODO: when creating new, different components later, bring up the fact that the styles in a `<style scoped>` tag don't affect other components, which is useful sometimes*
 
 I'm going to take the liberty of adding some basic CSS here to make the result look better. CSS is a language that lets you select some parts of the HTML and then write "rules" that change how they look. So, we can write a CSS selector that selects the "h1" section of the HTML (which stands for header 1, meaning the largest and most important header) and turn it red:
