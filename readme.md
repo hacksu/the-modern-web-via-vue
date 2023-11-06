@@ -294,6 +294,27 @@ Then, we can use the same `v-if` syntax to only show the content we've been usin
 And we can add another sub-template directly underneath:
 
 ```html
+<template>
+    <!-- HTML content goes here -->
+
+  <!-- new start tag -->
+  <template v-if="!state.ignoredWarning">
+    
+    <h1>Warning:</h1>
+    <strong>Dangerous radiation levels detected.</strong>
+    <h2>Flee immediately, {{ name }}!</h2>
+    <ul>
+      <li>Leave the room</li>
+      <li>Leave the building</li>
+      <li>If possible, leave the metropolitan area</li>
+      <li>This means you, {{ name }}.</li>
+    </ul>
+    <button @click="state.ignoredWarning = true">
+      Ignore this warning
+    </button>
+
+    <p v-if="state.ignoredWarning">Nice knowing you!</p>
+
   <!-- new end tag -->
   </template>
 
@@ -301,6 +322,9 @@ And we can add another sub-template directly underneath:
   <template v-else>
 
   </template>
+
+
+</template>
 ```
 
 And we can put content in this other sub-template that we only want to show up if the warning Is ignored. Just like you can create an "else" block in most programming languages to contain code that you want to run if some condition Isn't true, you can add `v-else` to the start tag of an HTML element if you want it to show up if the condition in the preceding `v-if` Isn't true. (By the preceding `v-if`, I don't mean the `v-if` inside the preceding element, on the `<p>`; I mean the `v-if` on the preceding template. `v-else` looks for the `v-if` on the start tag that corresponds to the end tag that's immediately before the `v-else`.)
@@ -308,18 +332,20 @@ And we can put content in this other sub-template that we only want to show up i
 Inside this `v-else`ified template, we're going to put a petting zoo, because why not. Change the button to:
 
 ```html
-    <button @click="state.ignoredWarning = true">
-      Ignore this warning and proceed to the petting zoo
-    </button>
+<button @click="state.ignoredWarning = true">
+    Ignore this warning and proceed to the petting zoo
+</button>
 ```
 
 And inside the petting zoo, we'll add:
 
 ```html
-<h1>Petting zoo</h1>
-<img
-    src="https://hacksu.com/animals/alpaca.jpg"
-/>
+<template v-else>
+    <h1>Petting zoo</h1>
+    <img
+        src="https://hacksu.com/animals/alpaca.jpg"
+    />
+</template>
 ```
 
 This new HTML tag, which stands on its own and doesn't need an end tag because it encloses no text content within it, displays an image. Remember what I said earlier: HTML tags eventually stopped just wrapping text and eventually came to represent content all by themselves? This is an example of that. Let's take it one step further and make this an even more forceful example of that by adding a new component. Can you create a new file called "Animal.vue" in the components folder?
@@ -387,7 +413,7 @@ So, if I add a state variable to our reactive object like this:
 ```js
 const state = reactive({
   timesPetted: 0,
-  radiationLevel: 10
+  radiationLevel: 5
 });
 ```
 
