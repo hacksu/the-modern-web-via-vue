@@ -254,7 +254,7 @@ Nice knowing you!
 
 So this is an example of using reactive state. The `state` variable stores information; that information is used to render a page; initially, the page just uses whatever initial values are stored in the state; but over time, that state can be updated, and the page reacts to those updates, as long as the state is part of an object that was created using a call to the function `reactive`. (There's another common way to create reactive state using a different function called `ref`, but I think `reactive` makes it clearer what's going on in a simple example like this.)
 
-Let's get fancy with our conditional rendering. It turns out that we can divide our template up into smaller sub-templates. Basically, we can take our existing HTML and put it in a template with the main template:
+Let's get fancy with our conditional rendering. It turns out that we can divide our template up into smaller sub-templates. Basically, we can take our existing HTML and put it in a template within the main template:
 
 ```html
 <template>
