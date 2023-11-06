@@ -194,6 +194,8 @@ const name = prompt("What name do you have ?");
 
 Now we're in business. Now we have some code that asks you what your name is and then uses it to give you a personalized warning about a nuclear reactor meltdown.
 
+## Part 3: State
+
 But the real power of frontend frameworks like Vue is the way that they can dynamically update HTML templates over time. To investigate that, we're going to have to talk about application "state". "State" is a word that basically refers to the values of all of the variables that are part of a given component. It is conceptually and practically separate from the HTML and CSS that dictate how the page is displayed; it's interesting, if we edit our HTML template, even to use the "name" variable again somewhere else, it won't have to ask us for our name again, because the state and the template are separate and changing the template doesn't change the state.
 
 ```html
@@ -321,6 +323,8 @@ And inside the petting zoo, we'll add:
 ```
 
 This new HTML tag, which stands on its own and doesn't need an end tag because it encloses no text content within it, displays an image. Remember what I said earlier: HTML tags eventually stopped just wrapping text and eventually came to represent content all by themselves? This is an example of that. Let's take it one step further and make this an even more forceful example of that by adding a new component. Can you create a new file called "Animal.vue" in the components folder?
+
+## Part 4: Components
 
 In Animal.vue, we're going to want to create a new template and paste in the image tag we were just using:
 
