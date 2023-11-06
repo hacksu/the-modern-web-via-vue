@@ -57,15 +57,7 @@ But really, what we're going to want to do is to try to take this information th
 
 And the receiving computer is going to display something that looks like this:
 
-# Warning:
-
-**Dangerous radiation levels detected.**
-
-## Flee immediately!
-
-- Leave the room
-- Leave the building
-- If possible, leave the metropolitan area
+![image](https://github.com/hacksu/the-modern-web-via-vue/assets/49729978/0ef5b113-5044-4cc6-9f88-25fd591c33b0)
 
 So that's the magic trick that HTML lets us pull off. On one hand, we send some plain text that looks really weird, and on the other hand, the receiver displays formatted text that looks nice. And that works because the receiving computer knows to take the HTML and get rid of parts of it and transform the rest when it's displayed to make it look okay.
 
@@ -75,7 +67,7 @@ And, a word of warning to beginners: HTML, which is what this is, started out as
 
 ## Part 2: The Modern Web
 
-So, HTML is all well and good, but in its raw form, it's very non-interactive: the text that you put in the HTML tags just kind of sits there. That's boring. Also, it's not very organized; everything you want to display on web page, you're usually going to have to put in one single file, which can get kind of sprawling and messy. (Unless you use iframes, which introduce other complications, like figuring out what size they should be.) There are a lot of systems that promise to give you the ability to write organized, interactive HTML: React, Svelte, Web Components, Angular, etc, but the one I have chosen to look at today is called Vue. And if you go to this StackBlitz link, *(TODO: add link)* you're going to be able to write some HTML within the Vue framework.
+So, HTML is all well and good, but in its raw form, it's very non-interactive: the text that you put in the HTML tags just kind of sits there. That's boring. Also, it's not very organized; everything you want to display on web page, you're usually going to have to put in one single file, which can get kind of sprawling and messy. (Unless you use iframes, which introduce other complications, like figuring out what size they should be.) There are a lot of systems that promise to give you the ability to write organized, interactive HTML: React, Svelte, Web Components, Angular, etc, but the one I have chosen to look at today is called Vue. And if you go to this StackBlitz link, https://stackblitz.com/edit/vitejs-vite-6cfx2z?file=src%2Fcomponents%2FContentComponent.vue you're going to be able to write some HTML within the Vue framework.
 
 So, as we can see, there are three basic sections in a Vue file. We have the `<template>` section, which is where you put HTML; we'll see why it's called "template" in a second. There's the `<script setup>` section, which is where you can put JavaScript code that makes your HTML changeable and interactive. This code runs once when your page initially loads, kind of like the "main" function in a C++ program. And there's the `<style scoped>` section, which is where you put CSS that lets you change the style and layout of your HTML.
 
